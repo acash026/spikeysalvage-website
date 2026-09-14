@@ -26,7 +26,7 @@ export default function ThankYouClient() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 sm:p-12 text-center">
+        <div className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-8 sm:p-12 text-center">
           <div className="mx-auto mb-6 w-20 h-20 sm:w-24 sm:h-24 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
             <svg className="w-10 h-10 sm:w-12 sm:h-12 text-green-500 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -66,8 +66,8 @@ export default function ThankYouClient() {
           </div>
 
           <div className="mb-8">
-            <div className="inline-flex items-center bg-blue-50 dark:bg-blue-900/20 rounded-lg px-4 py-2">
-              <span className="text-sm sm:text-base text-blue-700 dark:text-blue-300">
+            <div className="inline-flex items-center bg-gray-100 dark:bg-gray-700/50 rounded-lg px-4 py-2">
+              <span className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                 Redirecting to home in {countdown} seconds...
               </span>
             </div>
@@ -76,20 +76,20 @@ export default function ThankYouClient() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => router.push("/")}
-              className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-semibold text-sm sm:text-base transition-colors"
             >
               Back to Home
             </button>
             <button
               onClick={() => router.back()}
-              className="px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="px-6 py-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold text-sm sm:text-base transition-colors"
             >
               Go Back
             </button>
           </div>
         </div>
 
-        <div className="mt-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 text-center">
+        <div className="mt-6 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 text-center">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Need Help?</h3>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4">
             If you have any questions or need immediate assistance, feel free to contact us.

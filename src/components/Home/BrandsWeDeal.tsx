@@ -38,7 +38,7 @@ const BrandsWeDeal = () => {
                 key={`row1-${index}`}
                 className="flex-shrink-0 mx-1 xs:mx-2 sm:mx-3 md:mx-4 lg:mx-6 flex items-center justify-center group"
               >
-                <div className="bg-white dark:bg-gray-700 rounded-full p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8 shadow-lg hover:shadow-2xl dark:shadow-gray-900/50 transition-all duration-300 transform hover:scale-110 w-12 xs:w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-12 xs:h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 flex items-center justify-center border border-gray-200 dark:border-gray-600 hover:border-orange-300 dark:hover:border-orange-500">
+                <div className="bg-white dark:bg-gray-700 rounded-full p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 w-12 xs:w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-12 xs:h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 flex items-center justify-center border border-gray-200 dark:border-gray-600 hover:border-orange-300 dark:hover:border-orange-500">
                   <Image
                     src={brand.image}
                     alt={brand.name}
@@ -57,7 +57,7 @@ const BrandsWeDeal = () => {
                 key={`row2-${index}`}
                 className="flex-shrink-0 mx-1 xs:mx-2 sm:mx-3 md:mx-4 lg:mx-6 flex items-center justify-center group"
               >
-                <div className="bg-white dark:bg-gray-700 rounded-full p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8 shadow-lg hover:shadow-2xl dark:shadow-gray-900/50 transition-all duration-300 transform hover:scale-110 w-12 xs:w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-12 xs:h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 flex items-center justify-center border border-gray-200 dark:border-gray-600 hover:border-orange-300 dark:hover:border-orange-500">
+                <div className="bg-white dark:bg-gray-700 rounded-full p-2 xs:p-3 sm:p-4 md:p-6 lg:p-8 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 w-12 xs:w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 h-12 xs:h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 flex items-center justify-center border border-gray-200 dark:border-gray-600 hover:border-orange-300 dark:hover:border-orange-500">
                   <Image
                     src={brand.image}
                     alt={brand.name}
