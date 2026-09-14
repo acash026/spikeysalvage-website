@@ -12,8 +12,8 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
-  "https://www.bigskysalvage.us",
-  "https://bigskysalvage.us",
+  "https://www.spikeysalvage.us",
+  "https://spikeysalvage.us",
 ];
 
 // CORS configuration
