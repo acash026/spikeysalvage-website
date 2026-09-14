@@ -874,10 +874,7 @@ const AutoPartsForm = ({
     "Body Parts",
     "Others",
   ];
-  const API_URL =
-    process.env.NODE_ENV === "production"
-      ? "https://acceleraautoparts-backend.vercel.app"
-      : "http://localhost:5000";
+   const API_URL = "https://spikeysalvage-backend-pi.vercel.app";
 
   useEffect(() => {
     if (
