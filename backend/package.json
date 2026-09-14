@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js",
-    "build": "tsc -b && vite build",
+    "build": "echo 'no build needed'",
     "lint": "eslint .",
     "preview": "vite preview"
   },
