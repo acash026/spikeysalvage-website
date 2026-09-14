@@ -8,9 +8,13 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
-dist-ssr
 *.local
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
@@ -24,4 +28,8 @@ dist-ssr
 *.sw?
 
 .vercel
+.env
 .env*.local
+
+# generated Prisma client (regenerated via `postinstall` -> `prisma generate`)
+src/generated/

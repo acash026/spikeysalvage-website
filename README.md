@@ -1,69 +1,34 @@
-# React + TypeScript + Vite
+# Spikey Salvage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website for Spikey Salvage, part of Big Sky Salvage — used OEM auto parts in St Cloud, FL. Built with Next.js (App Router), Tailwind CSS v4, shadcn/ui, and Prisma + Neon Postgres.
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+cp .env.example .env   # DATABASE_URL / DIRECT_URL — read by the Prisma CLI
+cp .env.example .env.local   # SMTP + contact-email values — read by Next.js
+npx prisma migrate dev --name init   # creates the tables in your Neon database
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:3000](http://localhost:3000).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project structure
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `src/app/` — routes (App Router), API routes under `src/app/api/`
+- `src/components/` — shared React components (`Global/` layout chrome, `Home/` homepage sections, `ui/` primitives)
+- `src/data/` — static content (`parts.ts` drives the used-auto-parts catalog and product pages, `testimonials.ts`)
+- `src/lib/` — `site-config.ts` (brand/contact constants), `mailer.ts` (nodemailer transporter), `prisma.ts` (Prisma client singleton)
+- `prisma/schema.prisma` — `PartRequest` (quote-request leads) and `ContactMessage` (contact-form submissions)
+
+## Environment variables
+
+See `.env.example`.
+
+- `DATABASE_URL` / `DIRECT_URL` — Neon Postgres, used by Prisma (`prisma/schema.prisma`). `DATABASE_URL` should be the pooled connection string (host ending in `-pooler`) for app runtime queries; `DIRECT_URL` is the unpooled string used only by `prisma migrate`. The Prisma CLI reads these from a plain `.env` file at the project root (not `.env.local`).
+- `SMTP_*` + `ADMIN_EMAIL` power the contact and quote-request forms (`src/app/api/contact`, `src/app/api/send-email`), which both email out via nodemailer **and** persist a row via Prisma. `PUBLIC_CONTACT_EMAIL` is the address shown publicly on the site.
+
+## Deployment
+
+Deploys to Vercel as a standard Next.js app (`npm run build`). No custom `vercel.json` is required — Vercel auto-detects Next.js. `postinstall` runs `prisma generate` automatically. Set `DATABASE_URL`, `DIRECT_URL`, and the SMTP/email vars in the Vercel project's environment variables, and run `npx prisma migrate deploy` (or `migrate dev` locally) against the production database before the first deploy that needs the tables.

@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// A "Get a Free Quote" submission from AutoPartsForm (hero, modal, and every
+// product page). Previously written client-side to Firestore's
+// autoPartRequests collection; now created server-side in
+// src/app/api/send-email/route.ts.
+model PartRequest {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  year      String
+  make      String
+  model     String
+  partType  String
+  createdAt DateTime @default(now())
+
+  @@map("part_requests")
+}
+
+// A general contact-form submission (src/app/contact). Not persisted
+// anywhere before this migration — the form only sent email.
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+
+  @@map("contact_messages")
+}
