@@ -90,44 +90,40 @@ export default function ContactPageClient() {
       icon: Phone,
       title: "Phone",
       details: [
-        <a href={siteConfig.phoneHref} className="text-blue-500 hover:underline" key="phone">
+        <a href={siteConfig.phoneHref} className="text-primary hover:underline" key="phone">
           {siteConfig.phone}
         </a>,
       ],
-      color: "text-blue-500",
     },
     {
       icon: Mail,
       title: "Email",
       details: [
-        <a href={`mailto:${siteConfig.publicEmail}`} className="text-green-500 hover:underline" key="email">
+        <a href={`mailto:${siteConfig.publicEmail}`} className="text-primary hover:underline" key="email">
           {siteConfig.publicEmail}
         </a>,
       ],
-      color: "text-green-500",
     },
     {
       icon: MapPin,
       title: "Address",
       details: [siteConfig.address.full],
-      color: "text-red-500",
     },
     {
       icon: Clock,
       title: "Business Hours",
       details: [siteConfig.hours.weekday, siteConfig.hours.saturday, siteConfig.hours.sunday],
-      color: "text-orange-500",
     },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-      <header className="bg-white dark:bg-gray-800 shadow-lg">
-        <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white text-center mb-4">
+      <header className="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+        <div className="container mx-auto px-4 py-8 sm:py-10">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 dark:text-white text-center mb-3 sm:mb-4">
             Contact Our Support Team
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto">
             Our friendly part specialists will help you get quality auto parts
             at the best price
           </p>
@@ -142,7 +138,7 @@ export default function ContactPageClient() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-6">
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6">
+            <div className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
                 Get In Touch
               </h2>
@@ -150,7 +146,7 @@ export default function ContactPageClient() {
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className={`p-3 rounded-full bg-gray-100 dark:bg-gray-700 ${info.color}`}>
+                    <div className="p-3 rounded-full bg-primary/10 text-primary">
                       <info.icon className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
@@ -164,12 +160,12 @@ export default function ContactPageClient() {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6">
+            <div className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <MapPin className="w-5 h-5 mr-2 text-primary" />
                 Our Location
               </h3>
-              <div className="rounded-lg overflow-hidden shadow-lg">
+              <div className="rounded-lg overflow-hidden border border-gray-100 dark:border-gray-700">
                 <iframe
                   src={siteConfig.mapEmbedSrc}
                   width="100%"
@@ -187,7 +183,7 @@ export default function ContactPageClient() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6">
+            <div className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
                 <Send className="w-6 h-6 mr-2 text-primary" />
                 Send us a Message
@@ -266,7 +262,7 @@ export default function ContactPageClient() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 disabled:from-gray-400 disabled:to-gray-500 text-white py-4 px-6 rounded-lg font-semibold transition-all duration-200 transform hover:scale-[1.02] disabled:transform-none disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-lg"
+                  className="w-full bg-primary hover:bg-primary/90 disabled:bg-gray-400 text-primary-foreground py-3.5 px-6 rounded-lg font-semibold transition-colors disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -286,7 +282,7 @@ export default function ContactPageClient() {
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-8">
+        <div className="mt-12 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
             Frequently Asked Questions
           </h2>
@@ -346,25 +342,25 @@ export default function ContactPageClient() {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl shadow-2xl p-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Need Immediate Assistance?</h2>
-          <p className="text-orange-100 text-lg mb-6">
+        <div className="mt-12 bg-gray-900 rounded-xl p-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Need Immediate Assistance?</h2>
+          <p className="text-gray-300 text-base sm:text-lg mb-6">
             Our expert team is ready to help you find the perfect auto parts
             for your vehicle
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href={siteConfig.phoneHref}
-              className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2"
             >
-              <Phone className="w-5 h-5" />
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Call Now: {siteConfig.phone}</span>
             </a>
             <a
               href={`mailto:${siteConfig.publicEmail}`}
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2"
+              className="bg-white/10 border border-white/10 text-white hover:bg-white/15 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Email Us</span>
             </a>
           </div>

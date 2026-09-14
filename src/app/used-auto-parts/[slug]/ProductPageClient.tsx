@@ -23,32 +23,32 @@ export default function ProductPageClient({ part }: { part: Part }) {
   return (
     <div className="bg-white dark:bg-gray-900">
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+      <section className="relative flex items-center overflow-hidden py-14 sm:py-0 sm:min-h-[65vh]">
         <div className="absolute inset-0">
-          <Image src={part.image} alt={part.name} fill className="object-cover opacity-30 dark:opacity-20" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/90 to-gray-900/70" />
+          <Image src={part.image} alt={part.name} fill className="object-cover opacity-25 dark:opacity-15" priority />
+          <div className="absolute inset-0 bg-gray-900/90" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:py-16 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center w-full">
           <div className="text-white">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm text-orange-300 mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-3.5 py-1.5 text-xs sm:text-sm text-orange-300 mb-5 sm:mb-6">
               <Icon className="w-4 h-4" />
               {part.category}
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">{part.heroHeadline}</h1>
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed">{part.heroSubtext}</p>
-            <div className="flex flex-wrap gap-4">
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">{part.heroHeadline}</h1>
+            <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">{part.heroSubtext}</p>
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               <button
                 onClick={() => setModalOpen(true)}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-colors"
               >
                 Get a Free Quote
               </button>
               <a
                 href={siteConfig.phoneHref}
-                className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all duration-200 flex items-center gap-2"
+                className="bg-white/10 border border-white/10 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-white/15 transition-colors flex items-center gap-2"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                 {siteConfig.phone}
               </a>
             </div>
@@ -61,7 +61,7 @@ export default function ProductPageClient({ part }: { part: Part }) {
       </section>
 
       {/* Benefits */}
-      <section className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Why Buy a Used {part.singularName} from Spikey Salvage?
@@ -69,7 +69,7 @@ export default function ProductPageClient({ part }: { part: Part }) {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {part.benefits.map((benefit, i) => (
-            <div key={i} className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+            <div key={i} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Star className="w-6 h-6 text-primary" />
               </div>
@@ -81,7 +81,7 @@ export default function ProductPageClient({ part }: { part: Part }) {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800/40">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-50 dark:bg-gray-800/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
@@ -101,7 +101,7 @@ export default function ProductPageClient({ part }: { part: Part }) {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-4">
                 <Shield className="w-8 h-8 text-primary" />
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">{part.promiseTitle}</h3>
@@ -122,7 +122,7 @@ export default function ProductPageClient({ part }: { part: Part }) {
 
       {/* Types We Specialize In */}
       {part.typesSpecialize.length > 0 && (
-        <section className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 sm:py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
               {part.singularName} Types We Specialize In
@@ -130,7 +130,7 @@ export default function ProductPageClient({ part }: { part: Part }) {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {part.typesSpecialize.map((type, i) => (
-              <div key={i} className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div key={i} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
                 <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-3">{type.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{type.description}</p>
               </div>
@@ -140,25 +140,25 @@ export default function ProductPageClient({ part }: { part: Part }) {
       )}
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-center">
+      <section className="py-14 sm:py-12 sm:py-16 md:py-24 bg-gray-900 text-center">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-white mb-4">
             Ready to Order Your {part.singularName}?
           </h2>
-          <p className="text-gray-300 mb-8">
+          <p className="text-gray-300 mb-8 text-sm sm:text-base">
             Get a free, no-obligation quote from Spikey Salvage today.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <button
               onClick={() => setModalOpen(true)}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
             >
               Get a Free Quote
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <Link
               href="/used-auto-parts"
-              className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all duration-200"
+              className="bg-white/10 border border-white/10 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-white/15 transition-colors"
             >
               Browse All Parts
             </Link>
@@ -166,8 +166,8 @@ export default function ProductPageClient({ part }: { part: Part }) {
         </div>
       </section>
 
-      <div className="lg:hidden max-w-md mx-auto px-4 -mt-8 mb-16 relative z-10">
-        <AutoPartsForm className="shadow-2xl" showTitle />
+      <div className="lg:hidden max-w-md mx-auto px-4 -mt-6 mb-12 relative z-10">
+        <AutoPartsForm className="shadow-xl" showTitle />
       </div>
 
       <AutoPartsModalForm isOpen={modalOpen} onClose={() => setModalOpen(false)} />
