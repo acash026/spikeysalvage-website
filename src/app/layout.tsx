@@ -4,6 +4,7 @@ import Script from "next/script";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Navbar from "@/components/Global/Navbar";
 import Footer from "@/components/Global/Footer";
@@ -66,7 +67,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} font-sans antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-white`}>
+      <body
+        className={`${montserrat.variable} font-sans antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-white`}
+      >
         {/* Google Tag Manager / Ads */}
         <Script id="gtm-script" strategy="afterInteractive">
           {`
@@ -146,6 +149,7 @@ export default function RootLayout({
         </SmoothScrollProvider>
 
         <ToastContainer position="top-right" autoClose={5000} theme="colored" />
+        <SpeedInsights />
       </body>
     </html>
   );
