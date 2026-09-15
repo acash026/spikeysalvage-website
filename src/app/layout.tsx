@@ -55,10 +55,7 @@ export const metadata: Metadata = {
     icon: "/assets/logo/spikey-salvage-logo.png",
   },
   verification: {
-    // Replace with the verification code from a NEW Google Search Console
-    // property created for spikeysalvage.us (the old code in the previous
-    // index.html belonged to the acceleraautoparts.com property).
-    google: "REPLACE_WITH_NEW_SEARCH_CONSOLE_VERIFICATION_CODE",
+    google: "-WJmM0b9kuYN0XrJMmdz0wUnzqdUMBYW9_lJtRFZisw",
   },
 };
 
