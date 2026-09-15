@@ -30,6 +30,7 @@ const Footer = () => {
                 width={80}
                 height={80}
                 className="w-20 h-20 object-contain"
+                unoptimized
               />
             </div>
             <p className="text-gray-400 mb-1">{siteConfig.parentTagline}</p>

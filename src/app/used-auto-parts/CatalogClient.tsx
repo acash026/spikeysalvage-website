@@ -259,12 +259,12 @@ export default function CatalogClient() {
                 </div>
               </div>
 
-              <div className="bg-gray-900 rounded-lg p-5 text-white">
+              <div className="bg-primary rounded-lg p-5 text-primary-foreground">
                 <h3 className="font-bold mb-2">Need Help?</h3>
-                <p className="text-white/70 text-sm mb-4">
+                <p className="text-primary-foreground/80 text-sm mb-4">
                   Our experts are ready to help you find the perfect part for your vehicle.
                 </p>
-                <a href={siteConfig.phoneHref} className="flex items-center gap-2 text-sm font-medium text-primary">
+                <a href={siteConfig.phoneHref} className="flex items-center gap-2 text-sm font-medium">
                   <Phone className="w-4 h-4" />
                   {siteConfig.phone}
                 </a>
