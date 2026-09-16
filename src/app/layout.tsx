@@ -84,6 +84,21 @@ export default function RootLayout({
           `}
         </Script>
 
+        {/* Google Ads conversion tag */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17914467402"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17914467402');
+          `}
+        </Script>
+
         {/* Microsoft Clarity */}
         <Script id="clarity-script" strategy="afterInteractive">
           {`
